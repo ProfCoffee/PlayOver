@@ -8,6 +8,7 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="action_sign_in_guest_interjection">Or&#8230;</string>
     <string name="action_sign_in_guest">Sign in as Guest</string>
+    <string name="action_sign_up">Sign up!</string>
 
     <string name="action_sign_in_provider">Sign in as Provider</string>
     <string name="action_forgot_password">Forgot Email/Password?</string>
@@ -19,7 +20,27 @@
         completions."
     </string>
     <string name="welcomeTitle">Welcome to PlayOver!</string>
-    <string name="welcomeSubtitle">We are excited to play with you....</string>
+    <string name="welcomeSubtitle">The best solution to your layover</string>
 
     <string name="logo_c_description">Main logo for the app</string>
+    <string name="title_activity_login_provider">Provider Portal</string>
+
+    <string name="login_provider_welcome">Provider Portal</string>
+
+
+    <string name="airport_promt_string">Choose an Airport</string>
+    <string-array name="Airport_array">
+        <item>Atlanta, GA</item>
+        <item>Birmingham, AL</item>
+        <item>St. Louis, MO</item>
+        <item>New York, NY</item>
+        <item>Chicago, IL</item>
+    </string-array>
+    <string name="airport_promt_2_string">Now Let the Good Times Roll!</string>
+    <string name="airport_search_string">Search for Activities</string>
+    <string name="airport_name_string">Airport Name</string>
+
+    <string name="activity_name">Activity Name</string>
+    <string name="activity_provider_name">Provider</string>
+    <string name="activity_cost">$100.00</string>
 </resources>

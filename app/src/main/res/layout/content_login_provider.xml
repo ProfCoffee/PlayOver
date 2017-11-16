@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,15 +10,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.steubercreative.www.playover.LoginActivity">
-
-    <!-- Login progress -->
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
 
     <ScrollView
         android:id="@+id/login_form"
@@ -38,23 +30,16 @@
 
 
             <TextView
-                android:id="@+id/WelcomeTitle"
+                android:id="@+id/Login_Provider_Welcome"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:lineSpacingExtra="5sp"
-                android:text="@string/welcomeTitle"
+                android:text="@string/login_provider_welcome"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/WelcomeSubTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/welcomeSubtitle"
-                android:textAlignment="center"
-                android:textStyle="italic" />
+                android:textStyle="bold"
+                tools:text="@string/login_provider_welcome" />
 
             <Space
                 android:layout_width="match_parent"
@@ -106,48 +91,11 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/sign_in_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/action_sign_in_guest_interjection"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"/>
-
-            <Button
-                android:id="@+id/email_sign_in_guest_button"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/action_sign_in_guest"
-                android:textAlignment="center"
-                android:textColor="@color/colorAccent"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/sign_in_provider_link"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/action_sign_in_provider"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/colorLink"/>
-
-            <TextView
                 android:id="@+id/forgot_password_link"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/action_forgot_password"
                 android:textColor="@color/colorLink"/>
-
-            <TextView
-                android:id="@+id/sign_up_link"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/action_sign_up"
-                android:textColor="@color/colorLink"
-                android:layout_marginTop="10dp"/>
 
             <Space
                 android:layout_width="match_parent"

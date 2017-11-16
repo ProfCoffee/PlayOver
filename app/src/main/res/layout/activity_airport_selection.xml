@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimary"
+    tools:context="com.steubercreative.www.playover.AirportSelectionActivity">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/logo_c_description"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/airport_promt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/airport_promt_string"
+        android:textColor="@color/colorAccent"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        android:layout_marginTop="60dp"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorLink"
+        android:layout_height="46dp" />
+
+    <Button
+        android:id="@+id/search_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/airport_search_string"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary" />
+
+</LinearLayout>
