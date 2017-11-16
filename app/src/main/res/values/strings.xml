@@ -43,4 +43,7 @@
     <string name="activity_name">Activity Name</string>
     <string name="activity_provider_name">Provider</string>
     <string name="activity_cost">$100.00</string>
+    <string name="title_activity_singup_provider">SingupProviderActivity</string>
+    <string name="prompt_name"><![CDATA[First & Last Name]]></string>
+    <string name="title_actiity_signup_provider"> User Signup</string>
 </resources>

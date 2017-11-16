@@ -29,7 +29,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AirportSelectionActivity" />
         <activity android:name=".ActivitiesActivity" />
-        <activity android:name=".ActivityPageActivity"></activity>
+        <activity android:name=".ActivityPageActivity" />
+        <activity android:name=".SignupProviderActivity"></activity>
     </application>
 
 </manifest>
