@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PlayOver.iml" filepath="$PROJECT_DIR$/PlayOver.iml" />
+      <module fileurl="file://D:\Users\stste\StudioProjects\PlayOver\PlayOver.iml" filepath="D:\Users\stste\StudioProjects\PlayOver\PlayOver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
