@@ -112,7 +112,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mSignup.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, SignupProviderActivity.class));
+                startActivity(new Intent(LoginActivity.this, SignupSelectionActivity.class));
             }
         });
 
