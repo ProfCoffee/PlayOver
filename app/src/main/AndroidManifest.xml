@@ -34,6 +34,11 @@
         <activity android:name=".SignupSelectionActivity" />
         <activity android:name=".SignupProviderActivity" />
         <activity android:name=".ForgotLoginActivity" />
+        <activity
+            android:name=".ManageProviderActivity"
+            android:label="@string/title_activity_manage_provider"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AddActivityActivity"></activity>
     </application>
 
 </manifest>
