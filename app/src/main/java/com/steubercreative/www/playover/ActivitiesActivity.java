@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ActivitiesActivity extends AppCompatActivity {
@@ -23,8 +24,16 @@ public class ActivitiesActivity extends AppCompatActivity {
         mAirportName.setText(parentIntent.getStringExtra("Airport"));
 
         for (int i = 0; i < 25; i++){
-            addActivityView(i + "Eat bubbles on roofs", "Sean Steuber", 8+i, i%2==0);
+            addActivityView(i + " An Awesome Activity", "Sean Steuber the " + i + "st", 8+i, i%2!=0);
         }
+
+        Button mFilterButton = findViewById(R.id.filter_button);
+        mFilterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filterActivities();
+            }
+        });
     }
 
     private void addActivityView(final String activityName, String providerName, float cost, boolean dark){
@@ -52,5 +61,13 @@ public class ActivitiesActivity extends AppCompatActivity {
         });
 
         mLinearLayout.addView(activityView);
+    }
+
+    private void filterActivities(){
+        mLinearLayout.removeAllViews();
+
+        for (int i = 0; i < 11; i++){
+            addActivityView(i + " Pandas eating bamboo", "Jortdan Calsean the " + i + "rd", 17+i, i%2!=0);
+        }
     }
 }
