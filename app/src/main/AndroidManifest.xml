@@ -31,7 +31,8 @@
         <activity android:name=".ActivitiesActivity" />
         <activity android:name=".ActivityPageActivity" />
         <activity android:name=".SignupUserActivity" />
-        <activity android:name=".SignupSelectionActivity"></activity>
+        <activity android:name=".SignupSelectionActivity" />
+        <activity android:name=".SignupProviderActivity"></activity>
     </application>
 
 </manifest>

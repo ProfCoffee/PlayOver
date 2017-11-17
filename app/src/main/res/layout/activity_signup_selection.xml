@@ -33,27 +33,25 @@
         android:id="@+id/signup_user_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/signup_user" />
+        android:text="@string/signup_user"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="80dp" />
 
     <Button
-        android:id="@+id/signup_corperate_button"
+        android:id="@+id/signup_provider_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/signup_corporate_provider" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
-
-    <Button
-        android:id="@+id/signup_individual_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/signup_individual_provider" />
+        android:text="@string/signup_provider"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
 
 </LinearLayout>
 

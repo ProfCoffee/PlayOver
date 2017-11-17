@@ -1,6 +1,7 @@
 package com.steubercreative.www.playover;
 
 import android.content.Intent;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,11 +19,7 @@ public class SignupProviderActivity extends AppCompatActivity {
         mSignUpProviderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView username = findViewById(R.id.user_username);
-
                 Intent intent = new Intent(SignupProviderActivity.this, LoginActivity.class);
-                intent.putExtra("Username", (String)username.getText());
-
                 startActivity(intent);
             }
         });
