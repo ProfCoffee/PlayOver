@@ -83,7 +83,7 @@ public class ManageProviderActivity extends AppCompatActivity
         if (id == R.id.add_activity) {
             startActivity(new Intent(ManageProviderActivity.this,AddActivityActivity.class));
         } else if (id == R.id.manage_info) {
-
+            startActivity(new Intent(ManageProviderActivity.this, ManageProviderInformationActivity.class));
         }
 
 

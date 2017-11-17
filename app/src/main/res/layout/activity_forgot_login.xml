@@ -45,7 +45,9 @@
         android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/action_submit_email" />
+        android:text="@string/action_submit_email"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorAccent"/>
 
 
 </LinearLayout>

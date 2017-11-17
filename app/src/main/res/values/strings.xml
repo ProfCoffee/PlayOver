@@ -67,4 +67,7 @@
     <string name="prompt_activity_cost">Activity Cost</string>
     <string name="prompt_activity_schedule">Activity Schedule</string>
     <string name="prompt_activity_descrption">Activity Description</string>
+    <string name="action_change_information">Change Account Information</string>
+    <string name="prompt_provider_schedule">Provider Schedule</string>
+    <string name="prompt_provider_description">Provider Description</string>
 </resources>

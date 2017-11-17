@@ -38,7 +38,8 @@
             android:name=".ManageProviderActivity"
             android:label="@string/title_activity_manage_provider"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AddActivityActivity"></activity>
+        <activity android:name=".AddActivityActivity" />
+        <activity android:name=".ManageProviderInformationActivity"></activity>
     </application>
 
 </manifest>

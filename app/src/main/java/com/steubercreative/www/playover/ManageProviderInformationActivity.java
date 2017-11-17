@@ -6,18 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class AddActivityActivity extends AppCompatActivity {
+public class ManageProviderInformationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_activity);
+        setContentView(R.layout.activity_manage_provider_information);
 
         Button mSubmit = findViewById(R.id.submit_button);
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AddActivityActivity.this, ManageProviderActivity.class));
+                startActivity(new Intent(ManageProviderInformationActivity.this,ManageProviderActivity.class));
             }
         });
     }
