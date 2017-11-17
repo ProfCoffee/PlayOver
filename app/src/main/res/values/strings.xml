@@ -49,6 +49,11 @@
     <string name="signup_user">User Signup</string>
     <string name="signup_corporate_provider">Coperate Provider Signup</string>
     <string name="signup_individual_provider">Indivual Provider Signup</string>
-    <string name="signup_provider" >Provider Signup</string>
+    <string name="signup_provider">Provider Signup</string>
     <string name="prompt_contact_info">Phone Number</string>
+    <string name="action_submit_email">Submit</string>
+    <string name="title_activity_managment_provider">ManagmentProviderActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
