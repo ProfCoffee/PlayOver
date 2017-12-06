@@ -27,6 +27,31 @@
 
     <string name="login_provider_welcome">Provider Portal</string>
 
+    <string name="action_submit_email">Submit Email</string>
+
+    <string name="action_add_activity">Add Activity</string>
+    <string name="prompt_activity_name">Activity Name</string>
+    <string name="prompt_activity_cost">Activity Cost</string>
+    <string name="prompt_activity_schedule">Activity Schedule</string>
+    <string name="prompt_activity_description">Activity Description</string>
+
+    <string name="action_change_information">Change Information</string>
+    <string name="prompt_name">Name</string>
+    <string name="prompt_contact_info">Contact Information</string>
+    <string name="prompt_provider_schedule">Provider Schedule</string>
+    <string name="prompt_provider_description">Provider Description</string>
+
+    <string name="signup_provider">Signup Provider</string>
+
+    <string name="signup_choose">Select</string>
+    <string name="signup_user">User</string>
+
+    <string name="action_settings">Setting</string>
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+
+
 
     <string name="airport_promt_string">Please choose an airport</string>
     <string-array name="Airport_array">
