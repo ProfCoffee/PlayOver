@@ -37,7 +37,6 @@
         <activity android:name=".FeedbackFormActivity" />
         <activity android:name=".ManageUserAccountActivity" />
         <activity android:name=".ProviderMainActivity" />
-        <activity android:name=".ManageProviderAccount" />
         <activity android:name=".ManageActivitiesActivity" />
         <activity android:name=".ProviderModifiyActivity"></activity>
     </application>

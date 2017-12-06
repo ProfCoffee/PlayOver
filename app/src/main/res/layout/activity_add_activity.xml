@@ -75,7 +75,7 @@
             android:id="@+id/activity_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/prompt_activity_descrption" />
+            android:hint="@string/prompt_activity_description" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
