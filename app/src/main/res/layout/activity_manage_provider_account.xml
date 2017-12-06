@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.steubercreative.www.playover.ManageProviderAccount">
+
+    <ScrollView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="28dp"
+                android:text="Manage Account"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="center"/>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/colorAccentGray"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="24dp"
+                    android:text="Appearance"
+                    android:textColor="@color/colorAccentBlue"/>
+
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/colorAccentGray"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Account Name:"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginTop="10dp"/>
+
+                <EditText
+                    android:id="@+id/ManageNameTextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="CurrentName"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="24dp"
+                    android:text="Security"
+                    android:textColor="@color/colorAccentBlue"/>
+
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/colorAccentGray"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Old Password:"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginTop="10dp"/>
+
+                <EditText
+                    android:id="@+id/ManageOldPasswordTextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="New Password:"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginTop="10dp"/>
+
+                <EditText
+                    android:id="@+id/ManageNewPasswordTextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text=""
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+            </LinearLayout>
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/colorAccentGray"/>
+
+            <Button
+                android:id="@+id/ManageAccountSaveChangesButton"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:text="Save Changes"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

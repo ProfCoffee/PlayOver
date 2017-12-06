@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.steubercreative.www.playover.ProviderModifiyActivity">
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/logo_c_description"
+                android:src="@drawable/logo"
+                android:layout_marginTop="10dp"/>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorAccentGray"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Activity Name: "
+                    android:textColor="@color/colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/ActivityNameTextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text=""
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorLink"
+                android:layout_height="46dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Location: "
+                    android:textColor="@color/colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/LocationTextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text=""
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Cost ($): "
+                    android:textColor="@color/colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/CostTextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text=""
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Duration (mins): "
+                    android:textColor="@color/colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/DurationTextField"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text=""
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/StatusRadioGroup">
+
+                <RadioButton
+                    android:id="@+id/ActiveRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Active"
+                    android:checked="true"
+                    android:textColor="@color/colorActive"/>
+
+                <RadioButton
+                    android:id="@+id/InactiveRadio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Inactive"
+                    android:textColor="@color/colorInactive"/>
+
+            </RadioGroup>
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minDate="2017"
+                />
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorAccentGray"/>
+
+            <Button
+                android:id="@+id/LogoutButton"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="18sp"
+                android:backgroundTint="@color/colorAccent"
+                android:text="Save"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="96dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

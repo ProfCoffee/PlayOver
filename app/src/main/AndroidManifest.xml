@@ -35,7 +35,11 @@
             android:label="@string/title_activity_provider_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".FeedbackFormActivity" />
-        <activity android:name=".ManageUserAccountActivity"></activity>
+        <activity android:name=".ManageUserAccountActivity" />
+        <activity android:name=".ProviderMainActivity" />
+        <activity android:name=".ManageProviderAccount" />
+        <activity android:name=".ManageActivitiesActivity" />
+        <activity android:name=".ProviderModifiyActivity"></activity>
     </application>
 
 </manifest>

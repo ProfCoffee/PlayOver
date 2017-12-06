@@ -26,6 +26,15 @@ public class ActivityLoader extends LayoutLoader{
         }
     }
 
+    public void PopulateEditLayout (ViewGroup layout, int feedbackId, int count) {
+        layout.removeAllViews();
+
+        for (int i = 0; i < count; i++) {
+            AddEditRow(layout, i + " Pandas eating bamboo", "Jortdan Calsean the " + i + "rd", 17 + i, 5);
+        }
+    }
+
+
     private void AddRow(ViewGroup layout, final String activityName, String providerName, float cost, int rating){
         View activityView = LayoutInflater.from(_context).inflate(R.layout.activity_item, layout, false);
 
@@ -57,6 +66,36 @@ public class ActivityLoader extends LayoutLoader{
                 Intent intent = new Intent(_context, ProviderPageActivity.class);
 
                 intent.putExtra("providerID", 12312);
+
+                _context.startActivity(intent);
+            }
+        });
+
+        LinearLayout ratingStars_layout = activityView.findViewById(R.id.stars);
+        addStars(ratingStars_layout, rating);
+
+        layout.addView(activityView);
+    }
+
+    private void AddEditRow(ViewGroup layout, final String activityName, String providerName, float cost, int rating){
+        View activityView = LayoutInflater.from(_context).inflate(R.layout.activity_item, layout, false);
+
+        TextView activityNameTextView = activityView.findViewById(R.id.ActivityName);
+        TextView activityProviderNameTextView = activityView.findViewById(R.id.ProviderName);
+        TextView activityCostTextView = activityView.findViewById(R.id.Cost);
+
+        activityNameTextView.setText(activityName);
+        activityProviderNameTextView.setText(providerName);
+        activityCostTextView.setText("$"+cost);
+
+        Button viewButton = activityView.findViewById(R.id.view_button);
+        viewButton.setText("Edit");
+        viewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(_context, ProviderModifiyActivity.class);
+
+                intent.putExtra("ActivityID", 2346);
 
                 _context.startActivity(intent);
             }
