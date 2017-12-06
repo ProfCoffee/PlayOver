@@ -28,7 +28,7 @@
     <string name="login_provider_welcome">Provider Portal</string>
 
 
-    <string name="airport_promt_string">Choose an Airport</string>
+    <string name="airport_promt_string">Please choose an airport</string>
     <string-array name="Airport_array">
         <item>Atlanta, GA</item>
         <item>Birmingham, AL</item>
@@ -43,4 +43,26 @@
     <string name="activity_name">Activity Name</string>
     <string name="activity_provider_name">Provider</string>
     <string name="activity_cost">$100.00</string>
+    <string name="title_activity_provider_page">ProviderPageActivity</string>
+
+
+    <string name="ratings_prompt">Select a Star Rating</string>
+    <string-array name="ratings_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string name="sorting_promptt">Select a Sort Method</string>
+    <string-array name="sorting_array">
+        <item>Sort by Relevance</item>
+        <item>Sort by Cost Greatest to Least</item>
+        <item>Sort by Cost Least to Greatest</item>
+        <item>Sort by Duration Greatest to Least</item>
+        <item>Sort by Duration Least to Greatest</item>
+        <item>Sort by Rating Greatest to Least</item>
+        <item>Sort by Rating Least to Greatest</item>
+    </string-array>
 </resources>

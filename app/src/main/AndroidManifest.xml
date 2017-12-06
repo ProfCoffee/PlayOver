@@ -29,7 +29,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AirportSelectionActivity" />
         <activity android:name=".ActivitiesActivity" />
-        <activity android:name=".ActivityPageActivity"></activity>
+        <activity android:name=".ActivityPageActivity" />
+        <activity
+            android:name=".ProviderPageActivity"
+            android:label="@string/title_activity_provider_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".FeedbackFormActivity" />
+        <activity android:name=".ManageUserAccountActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.steubercreative.www.playover.FeedbackFormActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/logo_c_description"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="26dp"
+                android:text="Submit Feedback"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/FeedbackToEntity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="to toEntity"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="italic"
+                android:textAlignment="center"/>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorAccentGray"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:text="Star Rating:"
+                    android:textColor="@color/colorPrimary"
+                    android:textAlignment="center"/>
+
+                <Spinner
+                    android:id="@+id/FeedbackRatingSpinner"
+                    android:layout_width="wrap_content"
+                    android:minWidth="70dp"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/ratings_array"
+                    android:prompt="@string/ratings_prompt"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/FeedBackDescription"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:inputType="text|textMultiLine"
+                android:gravity="top"
+                android:hint="Feedback content"/>
+
+            <Button
+                android:id="@+id/FeedbackSubmit"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:text="Submit Feedback"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

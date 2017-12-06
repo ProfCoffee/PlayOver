@@ -2,6 +2,12 @@
 <resources>
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#ffb400</color>
+
     <color name="colorLink">#0030ff</color>
+    <color name="colorAccent">#ffb400</color>
+    <color name="colorAccentBlue">#0030ff</color>
+    <color name="colorAccentGray">#696d6a</color>
+    <color name="colorMoney">#16933d</color>
+    <color name="colorActive">#16933d</color>
+    <color name="colorInactive">#af0d01</color>
 </resources>
