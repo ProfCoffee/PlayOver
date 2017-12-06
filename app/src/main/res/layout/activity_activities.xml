@@ -11,52 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.steubercreative.www.playover.ActivitiesActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/logo_c_description"
-            android:src="@drawable/logo" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/AirportName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/airport_name_string"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/AirportLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/AirportLocation"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:layout_margin="10dp">
-
-
-    </LinearLayout>
-
     <ScrollView
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
@@ -67,6 +21,155 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/logo_c_description"
+                    android:src="@drawable/logo" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/AirportName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/airport_name_string"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:id="@+id/AirportLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/AirportLocation"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/SortAdvancedOptionsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Min Rating: "
+                    android:textColor="@color/colorPrimary"
+                    android:textAlignment="center"
+                    android:textSize="18sp"/>
+
+                <Spinner
+                    android:id="@+id/MinRatingSpinner"
+                    android:layout_width="wrap_content"
+                    android:minWidth="30dp"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/ratings_array"
+                    android:prompt="@string/ratings_prompt"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Max Duration: "
+                    android:textColor="@color/colorPrimary"
+                    android:textAlignment="center"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/SortActivitiesMaxDuration"
+                    android:layout_width="match_parent"
+                    android:minWidth="75dp"
+                    android:layout_height="40dp"
+                    android:text=""
+                    android:hint="in Minutes"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Max Cost: "
+                    android:textColor="@color/colorPrimary"
+                    android:textAlignment="center"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/SortActivitiesMaxCost"
+                    android:layout_width="match_parent"
+                    android:minWidth="75dp"
+                    android:layout_height="40dp"
+                    android:text=""
+                    android:hint="in Dollars"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Keyword: "
+                    android:textColor="@color/colorPrimary"
+                    android:textAlignment="center"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/SortActivitiesKeyword"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text=""
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/OrderActivitiesSpinner"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorAccentBlue"
+                android:layout_height="46dp" />
+
             <Button
                 android:id="@+id/filter_button"
                 style="@style/Widget.AppCompat.Button"
@@ -76,7 +179,15 @@
                 android:text="@string/FilterActivities"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/sort_advanced_options_toggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toggle Advanced Search Options"
+                android:textColor="@color/colorLink"/>
 
             <LinearLayout
                 android:id="@+id/activities_layout"

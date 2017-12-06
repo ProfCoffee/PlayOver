@@ -30,16 +30,12 @@
         <activity android:name=".AirportSelectionActivity" />
         <activity android:name=".ActivitiesActivity" />
         <activity android:name=".ActivityPageActivity" />
-        <activity android:name=".SignupUserActivity" />
-        <activity android:name=".SignupSelectionActivity" />
-        <activity android:name=".SignupProviderActivity" />
-        <activity android:name=".ForgotLoginActivity" />
         <activity
-            android:name=".ManageProviderActivity"
-            android:label="@string/title_activity_manage_provider"
+            android:name=".ProviderPageActivity"
+            android:label="@string/title_activity_provider_page"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AddActivityActivity" />
-        <activity android:name=".ManageProviderInformationActivity"></activity>
+        <activity android:name=".FeedbackFormActivity" />
+        <activity android:name=".ManageUserAccountActivity"></activity>
     </application>
 
 </manifest>

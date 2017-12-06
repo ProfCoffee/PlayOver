@@ -6,14 +6,15 @@
     android:orientation="vertical"
     android:padding="10dp">
 
-    <TextView
-        android:id="@+id/ActivityName"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="@string/activity_name"
-        android:textColor="@color/colorPrimary"
-        android:textSize="16sp" />
+        android:layout_height="2dp"
+        android:background="@color/colorAccentGray"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorAccentGray"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,20 +22,74 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/ProviderName"
+            android:id="@+id/ActivityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activity Name"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/activity_provider_name"
-            android:textColor="@color/colorPrimary" />
+            android:orientation="horizontal"
+            android:gravity="right">
+
+            <Button
+                android:id="@+id/view_button"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:text="View"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ProviderName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Provider "
+        android:textColor="@color/colorLink" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/Cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_cost"
+            android:textColor="@color/colorMoney" />
+
+        <TextView
+            android:id="@+id/Duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/activity_cost"
-            android:textColor="@color/colorPrimary" />
+            android:text="55 mins"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorAccentGray" />
     </LinearLayout>
-
 </LinearLayout>

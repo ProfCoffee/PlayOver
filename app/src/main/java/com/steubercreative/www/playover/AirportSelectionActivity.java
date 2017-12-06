@@ -15,7 +15,7 @@ public class AirportSelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_airport_selection);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.airport_spinner, getResources().getStringArray(R.array.Airport_array));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.custom_spinner, getResources().getStringArray(R.array.Airport_array));
         Spinner airports = findViewById(R.id.spinner);
         airports.setAdapter(adapter);
 
@@ -28,6 +28,14 @@ public class AirportSelectionActivity extends AppCompatActivity {
                 Spinner airports = findViewById(R.id.spinner);
                 intent.putExtra("Airport", (String)airports.getSelectedItem());
                 startActivity(intent);
+            }
+        });
+
+        Button mManageAccountButton = findViewById(R.id.ManageAccountButton);
+        mManageAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AirportSelectionActivity.this, ManageUserAccountActivity.class));
             }
         });
     }
