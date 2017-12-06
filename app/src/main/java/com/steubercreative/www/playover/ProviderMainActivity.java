@@ -29,7 +29,6 @@ public class ProviderMainActivity extends AppCompatActivity {
             }
         });
 
-
         Button mManageAccount = findViewById(R.id.ManageAccountButton);
         mManageAccount.setOnClickListener(new View.OnClickListener() {
             @Override
