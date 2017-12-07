@@ -24,33 +24,25 @@ abstract public class AbstractDBArray<T extends ModifiableDBObject> {
     private Semaphore pending;
     private BroadcastReceiver broadcastReceiver;
     private Context currentContext;
-    private boolean wait;
     private Procedure after;
 
     protected AbstractDBArray() {
-        wait = false;
         after = null;
         pending = new Semaphore(1);
         currentContext = null;
         broadcastReceiver =  new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Log.d("onReceive", "broadcast received");
                 if(!intent.hasExtra("success") || Integer.valueOf(intent.getStringExtra("success")) == 1) {
-                    Log.d("onreceive", "doing the if statement");
                     Collection<Map<String, String>> rows = (Collection<Map<String, String>>) intent.getSerializableExtra(arrayFieldName);
-                    for(Map<String, String> row : rows) {
-                        Log.d("onReceive", "Found a row");
+                    for(Map<String, String> row : rows)
                         addObject(row);
-                    }
-                    Log.d("onReceive", "finished with airports");
                 }
                 else throw new RuntimeException("Array query failed");
                 arrayFieldName = null;
                 LocalBroadcastManager.getInstance(currentContext).unregisterReceiver(broadcastReceiver);
                 currentContext = null;
                 pending.release();
-                wait = false;
                 if(after != null) {
                     after.run();
                     after = null;
@@ -74,17 +66,6 @@ abstract public class AbstractDBArray<T extends ModifiableDBObject> {
         query(context, input, strings, arrayField, queryType);
     }
 
-    //private boolean isWaiting() {
-    //    return pending;
-    //}
-    private void waitForDBResponse() {
-/*        try {
-            pending.acquire();
-            Log.d("DBResponse", "database has responded");
-        } catch (InterruptedException e) { Log.d("DBResponse", "wait has been interrupted"); }*/
-        while(wait){}
-    }
-
     protected void query(Context context, Bundle input, Set<String> outputStrings,
                          String arrayField, String queryType) {
         arrayFieldName = arrayField;
@@ -93,16 +74,10 @@ abstract public class AbstractDBArray<T extends ModifiableDBObject> {
         currentContext = context;
         try {
             pending.acquire();
-        } catch (InterruptedException e) {
-
-        }
-        wait= true;
-        Log.d("ArrayDBObject", "Registering broadcastreceiver");
+        } catch (InterruptedException e) {}
         LocalBroadcastManager.getInstance(context)
                 .registerReceiver(broadcastReceiver, new IntentFilter(QueryMapper.getQueryReturnAction(queryType)));
         DBConnectionService.startArrayAction(context, input, outputStrings, arrays, queryType);
-        Log.d("AbstractDBArray", "waiting for  reply");
-        //waitForDBResponse();
     }
 
 }

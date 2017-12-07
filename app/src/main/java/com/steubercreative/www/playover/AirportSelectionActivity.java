@@ -61,10 +61,6 @@ public class AirportSelectionActivity extends AppCompatActivity {
             }
         });
         airportArray.retrieve(this);
-
-        Log.d("onResume", "number of airports= " + airportArray.getObjects().size());
-
-
     }
 
 }

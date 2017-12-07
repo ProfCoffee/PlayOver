@@ -51,31 +51,25 @@ public class DBConnectionService extends IntentService {
 
     public static void startArrayAction(Context context, Bundle input, Set<String> stringOutput,
                                         Set<String> arrayOutput, String queryType) {
-        Log.d("startArrayAction", "Starting startArrayAction()");
         Intent intent = new Intent(context, DBConnectionService.class);
         intent.putExtra(INPUT, input);
         intent.putExtra(OUTPUT, (Serializable) stringOutput);
         intent.putExtra(ARRAY_OUTPUT, (Serializable) arrayOutput);
         intent.putExtra(TYPE, queryType);
         intent.setAction(ACTION_ARRAY);
-        Log.d("startArrayAction", "about to startservice with action=" + ACTION_ARRAY);
         context.startService(intent);
-        Log.d("startArrayAction",  "About to leave startArrayAction");
     }
     public static void startAction(Context context, Bundle input, Set<String> output, String queryType) {
-        Log.d("startAction", "Starting startAction()");
         Intent intent = new Intent(context, DBConnectionService.class);
         intent.putExtra(INPUT, input);
         intent.putExtra(OUTPUT, (Serializable) output);
         intent.putExtra(TYPE, queryType);
         intent.setAction(ACTION_SINGLE);
         context.startService(intent);
-        Log.d("startAction",  "About to leave startAction");
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Log.d("onHandleIntent", "handling an intent");
         if (intent != null) {
             final String action = intent.getAction();
             String type = intent.getStringExtra(TYPE);
@@ -111,7 +105,6 @@ public class DBConnectionService extends IntentService {
 
     private void handleArrayAction(String page, Bundle input, Set<String> stringOutputs,
                                    Set<String> arrayOutputs, String action) throws IOException {
-        Log.d("handleArrayAction", "php page:" + page);
         URL url = null;
         try {
             url = new URL(buildURLString(page, input));
@@ -125,7 +118,6 @@ public class DBConnectionService extends IntentService {
             Intent intent = new Intent(action);
             addStringOutput(intent, obj, stringOutputs);
             addArrayOutput(intent, obj, arrayOutputs);
-            Log.d("DBConnectionServiceArray", "sending broadcast");
             LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage());
@@ -137,7 +129,6 @@ public class DBConnectionService extends IntentService {
     }
 
     private void handleAction(String page, Bundle input, Set<String> output, String action) throws IOException {
-        Log.d("handleAction", "php page: " + page);
         URL url = null;
         try {
             url = new URL(buildURLString(page, input));
@@ -151,7 +142,6 @@ public class DBConnectionService extends IntentService {
             JSONObject obj = new JSONObject(json);
             Intent intent = new Intent(action);
             addStringOutput(intent, obj, output);
-            Log.d("DBConnectionServiceSingle", "sending broadcast");
             LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage());

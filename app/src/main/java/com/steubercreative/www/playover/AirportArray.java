@@ -23,7 +23,6 @@ public class AirportArray extends AbstractDBArray<Airport> {
 
     @Override
     public List<Airport> getObjects() {
-        Log.d("getObjects", dbObjects.toString());
         return dbObjects;
     }
     @Override
@@ -33,8 +32,6 @@ public class AirportArray extends AbstractDBArray<Airport> {
     }
     @Override
     protected void addObject(Map<String, String> row) {
-        Airport airport = new Airport(row);
-        Log.d("addObject", "code:" + airport.getCode() + "; name:" + airport.getAirport());
-        dbObjects.add(airport);
+        dbObjects.add(new Airport(row));
     }
 }

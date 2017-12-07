@@ -26,7 +26,6 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
         }
     };
     private final boolean isReadOnly;
-    private boolean pending;
     private Context currentContext;
     private QueryReceiver receiver;
     private final BroadcastReceiver broadcastReceiver;
@@ -45,7 +44,6 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
             @Override
             public void onReceive(Context context, Intent intent) {
                 receiver.processQuery(intent);
-                pending = false;
                 LocalBroadcastManager.getInstance(currentContext).unregisterReceiver(broadcastReceiver);
                 receiver = null;
                 currentContext = null;
@@ -57,7 +55,6 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
         };
         receiver = null;
         currentContext = null;
-        pending = false;
     }
 
     @Override
@@ -127,22 +124,12 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
     }
 
 
-    private boolean isWaiting() {
-        return pending;
-    }
-    private void waitForDBResponse() {
-        while(isWaiting()) {}
-    }
-
     protected void query(Context context, Bundle input, Set<String> output, String queryType,
                          QueryReceiver rec) {
         receiver = rec;
         currentContext = context;
-        pending = true;
-        Log.d("SingleDBObject", "Registering broadcastreceiver");
         LocalBroadcastManager.getInstance(context)
                 .registerReceiver(broadcastReceiver, new IntentFilter(QueryMapper.getQueryReturnAction(queryType)));
         DBConnectionService.startAction(context, input, output, queryType);
-        waitForDBResponse();
     }
 }
