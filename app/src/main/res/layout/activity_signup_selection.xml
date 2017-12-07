@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/signup_choose"
+        android:text="How do you plan on using PlayOver?"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -33,7 +33,7 @@
         android:id="@+id/signup_user_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/signup_user"
+        android:text="Sign up as a user"
         android:backgroundTint="@color/colorPrimary"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
@@ -41,13 +41,13 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="80dp" />
+        android:layout_height="10dp" />
 
     <Button
         android:id="@+id/signup_provider_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/signup_provider"
+        android:text="Sign up as a provider"
         android:backgroundTint="@color/colorPrimary"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"

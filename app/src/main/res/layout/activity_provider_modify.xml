@@ -188,8 +188,11 @@
             </RadioGroup>
 
             <LinearLayout
+                android:id="@+id/SchedulingLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -200,12 +203,133 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
-                        android:text="Monday: "
+                        android:text="From: "
                         android:textColor="@color/colorPrimary"/>
 
-                    <TimePicker
+                    <EditText
+                        android:id="@+id/FromTimeHourTextField"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:text="12"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                    <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text=":"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <EditText
+                        android:id="@+id/FromTimeMinuteTextField"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:text="00"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                    <Spinner
+                        android:id="@+id/FromTimeSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/time_array"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="To: "
+                        android:layout_marginRight="24dp"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <EditText
+                        android:id="@+id/ToTimeHourTextField"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:text="12"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text=":"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <EditText
+                        android:id="@+id/ToTimeMinuteTextField"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:text="00"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                    <Spinner
+                        android:id="@+id/ToTimeSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/time_array"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_day_m"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="M"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_day_t"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="T"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_day_w"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="W"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_day_r"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="R"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_day_f"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="F"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_day_s"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="S"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_day_su"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Su"/>
+
                 </LinearLayout>
             </LinearLayout>
 

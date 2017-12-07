@@ -32,7 +32,7 @@
                 android:id="@+id/WelcomeText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome Back, User"
+                android:text="Welcome to PlayOver!"
                 android:textColor="@color/colorAccent"
                 android:textAlignment="center"
                 android:textSize="28sp"/>

@@ -72,13 +72,21 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ActivityDescription"
+                android:id="@+id/ProviderContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text="Contact: "
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/ProviderDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
                 android:text="ProviderDescription"
-                android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
                 android:textColor="@color/colorPrimary"/>
 
             <TextView
@@ -89,7 +97,7 @@
                 android:textAlignment="center"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorAccentBlue"/>
 
             <LinearLayout
                 android:id="@+id/feedback_layout"
