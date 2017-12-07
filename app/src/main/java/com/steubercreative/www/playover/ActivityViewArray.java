@@ -12,21 +12,23 @@ import java.util.Map;
  */
 
 public class ActivityViewArray extends AbstractDBArray<Activity> {
-
+    private String airportCode;
     private List<Activity> activities;
 
-    public ActivityViewArray() {
+    public ActivityViewArray(String airportCode) {
         super();
+        this.airportCode = airportCode;
         activities = new ArrayList<>();
     }
 
     public List<Activity> getObjects() { return activities; }
     public void retrieve(Context context) {
         Bundle b = new Bundle();
-        retrieveHelper(context, b, "activities", QueryMapper.ACTION_FETCH_PROVIDER_ACTIVITIES);
+        b.putString("code", airportCode);
+        retrieveHelper(context, b, "activities", QueryMapper.ACTION_FETCH_AIRPORT_ACTIVITIES);
     }
     protected void addObject(Map<String, String> fields) {
-        activities.add(new Activity(fields));
+        activities.add(new Activity(fields, true));
     }
 
 
