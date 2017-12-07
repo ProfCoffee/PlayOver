@@ -95,10 +95,10 @@ public class ActivitiesActivity extends AppCompatActivity {
     }
 
     private void filterActivities(){
-        mLinearLayout.removeAllViews();
+//        mLinearLayout.removeAllViews();
 
-        for (int i = 0; i < 11; i++){
-            addActivityView(i + " Pandas eating bamboo", "Jortdan Calsean the " + i + "rd", 17+i);
-        }
+  //      for (int i = 0; i < 11; i++){
+   //         addActivityView(i + " Pandas eating bamboo", "Jortdan Calsean the " + i + "rd", 17+i);
+   //     }
     }
 }
