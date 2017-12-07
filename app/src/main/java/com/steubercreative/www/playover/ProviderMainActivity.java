@@ -57,7 +57,16 @@ public class ProviderMainActivity extends AppCompatActivity {
                 ToggleStatus();
             }
         });
+
+        Button mLogoutButton = findViewById(R.id.LogoutButton);
+        mLogoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProviderMainActivity.this,LoginActivity.class));
+            }
+        });
     }
+
 
     private void ToggleStatus(){
         TextView mStatusTest = findViewById(R.id.StatusText);

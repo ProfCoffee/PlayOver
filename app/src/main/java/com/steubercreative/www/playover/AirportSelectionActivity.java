@@ -46,6 +46,14 @@ public class AirportSelectionActivity extends AppCompatActivity {
             }
         });
 
+        Button mLogoutButton = findViewById(R.id.LogoutButton);
+        mLogoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AirportSelectionActivity.this,LoginActivity.class));
+            }
+        });
+
         if (userUID != 0) populateUserFields(userUID);
     }
     
@@ -86,6 +94,11 @@ public class AirportSelectionActivity extends AppCompatActivity {
             }
         });
         airportArray.retrieve(this);
+    }
+
+    public void onBackPressed()
+    {
+
     }
 
 }

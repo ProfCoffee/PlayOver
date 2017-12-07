@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class ForgotLoginActivity extends AppCompatActivity {
 
@@ -18,7 +19,9 @@ public class ForgotLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ForgotLoginActivity.this, LoginActivity.class);
-                startActivity(intent);
+                Toast.makeText(getBaseContext(),"NOT OPERATIONAL YET", Toast.LENGTH_LONG);
+
+                //startActivity(intent);
             }
         });
     }
