@@ -29,6 +29,9 @@ public class QueryMapper {
     public static final String ACTION_UPDATE_PROVIDER_INFO = "com.steubercreative.www.playover.action.UPDATE_PROVIDER_INFO";
     public static final String ACTION_DELETE_PROVIDER = "com.steubercreative.www.playover.action.DELETE_PROVIDER";
 
+    public static final String ACTION_FETCH_ACTIVITY_INFO = "com.steubercreative.www.playover.action.ACTION_FETCH_ACTIVITY_INFO";
+    public static final String ACTION_DELETE_PROVIDER = "com.steubercreative.www.playover.action.DELETE_PROVIDER";
+
 
     public static String getPHPLink(String queryType){
         return getInstance().phpLinks.get(queryType);
@@ -86,6 +89,9 @@ public class QueryMapper {
         mapper.actions.put(ACTION_CREATE_PROVIDER, "create_provider");
         mapper.phpLinks.put(ACTION_DELETE_PROVIDER, "provider_delete.php");
         mapper.actions.put(ACTION_DELETE_PROVIDER, "delete_provider");
+
+        mapper.phpLinks.put(ACTION_FETCH_ACTIVITY_INFO, "activity_info.php");
+        mapper.actions.put(ACTION_FETCH_ACTIVITY_INFO, "activity_info");
 
         return mapper;
     }
