@@ -3,7 +3,6 @@ package com.steubercreative.www.playover;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -27,12 +26,15 @@ public class ActivityPageActivity extends AppCompatActivity {
         Intent parentIntent = getIntent();
         _userUID = parentIntent.getIntExtra("userUID", 0);
 
+        feedbackLoader = new FeedbackLoader(this);
+
         final Activity activity = new Activity();
         activity.setUid(parentIntent.getIntExtra("uid", 0));
 
         activity.onCompletion(new Procedure() {
             @Override
             public void run() {
+                feedbackLoader.populateLayout(mFeedBackLayout, activity.getUid(), 7);
                 populateFields(activity);
             }
         });
@@ -60,9 +62,7 @@ public class ActivityPageActivity extends AppCompatActivity {
 
         mFeedBackLayout = findViewById(R.id.feedback_layout);
         mActivityStarsLayout = findViewById(R.id.ActivityStars);
-        feedbackLoader = new FeedbackLoader(this);
 
-        feedbackLoader.PopulateLayout(mFeedBackLayout, 1213, 7);
     }
 
     private void populateFields(Activity activity){

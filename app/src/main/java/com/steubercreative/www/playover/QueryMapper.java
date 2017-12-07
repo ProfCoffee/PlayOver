@@ -33,9 +33,6 @@ public class QueryMapper {
     public static final String ACTION_UPDATE_ACTIVITY_INFO = "com.steubercreative.www.playover.action.UPDATE_ACTIVITY_INFO";
     public static final String ACTION_CREATE_ACTIVITY = "com.steubercreative.www.playover.action.CREATE_ACTIVITY";
 
-    public static final String ACTION_FETCH_FEEDBACK = "com.steubercreative.www.playover.action.ACTION_FETCH_FEEDBACK";
-    public static final String ACTION_CREATE_FEEDBACK = "com.steubercreative.www.playover.action.CREATE_FEEDBACK";
-
     public static final String ACTION_FETCH_PROVIDER_ACTIVITIES = "com.steubercreative.www.playover.action.FETCH_PROVIDER_ACTIVITIES";
     public static final String ACTION_FETCH_AIRPORT_ACTIVITIES = "com.steubercreative.www.playover.action.FETCH_AIRPORT_ACTIVITIES";
 
@@ -119,21 +116,6 @@ public class QueryMapper {
         mapper.actions.put(ACTION_FETCH_PROVIDER_FEEDBACK, "provider_feedback");
         mapper.phpLinks.put(ACTION_CREATE_FEEDBACK, "feedback_create.php");
         mapper.actions.put(ACTION_CREATE_FEEDBACK, "create_feedback");
-
-        mapper.phpLinks.put(ACTION_FETCH_ACTIVITY_INFO, "activity_info.php");
-        mapper.actions.put(ACTION_FETCH_ACTIVITY_INFO, "activity_info");
-
-        mapper.phpLinks.put(ACTION_FETCH_ACTIVITY_INFO, "activity_info.php");
-        mapper.actions.put(ACTION_FETCH_ACTIVITY_INFO, "activity_info");
-        mapper.phpLinks.put(ACTION_UPDATE_ACTIVITY_INFO, "activity_update.php");
-        mapper.actions.put(ACTION_UPDATE_ACTIVITY_INFO, "activity_update");
-        mapper.phpLinks.put(ACTION_CREATE_ACTIVITY, "activity_create.php");
-        mapper.actions.put(ACTION_CREATE_ACTIVITY, "create_activity");
-
-        mapper.phpLinks.put(ACTION_FETCH_PROVIDER_ACTIVITIES, "provider_activities.php");
-        mapper.actions.put(ACTION_FETCH_PROVIDER_ACTIVITIES, "provider_activities");
-        mapper.phpLinks.put(ACTION_FETCH_AIRPORT_ACTIVITIES, "airport_activities.php");
-        mapper.actions.put(ACTION_FETCH_AIRPORT_ACTIVITIES, "airport_activities");
 
         return mapper;
     }

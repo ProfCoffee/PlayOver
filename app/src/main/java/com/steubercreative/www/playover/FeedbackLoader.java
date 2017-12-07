@@ -22,18 +22,21 @@ public class FeedbackLoader extends LayoutLoader{
         _isProvider = isProvider;
     }
 
-    public void PopulateLayout (ViewGroup layout, int uid, int count){
+    public void populateLayout(ViewGroup layout, int uid, int count){
         for (int i = 0; i < count; i++){
-            AddRow(layout);
+            addRow(layout);
         }
     }
 
-    public void AddRow(ViewGroup layout){
+    public void addRow(ViewGroup layout){
         View activityView;
         activityView = LayoutInflater.from(_context).inflate(R.layout.feedback_row, layout, false);
 
+        TextView text = activityView.findViewById(R.id.password);
+        //text.setText(feedback.getContent);
+
         LinearLayout feedBackStars_layout = activityView.findViewById(R.id.feedback_stars);
-        addStars(feedBackStars_layout, 5);
+        addStars(feedBackStars_layout, 5);  //rating
 
         layout.addView(activityView);
     }
