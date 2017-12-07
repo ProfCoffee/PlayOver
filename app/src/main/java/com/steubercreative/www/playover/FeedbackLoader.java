@@ -35,7 +35,7 @@ public class FeedbackLoader extends LayoutLoader{
                     addRow(item, layoutAlias);
             }
         });
-        feedback.retrieve(this._context);
+        //feedback.retrieve(this._context);
     }
 
     public void addRow(Feedback feedback, ViewGroup layout){
