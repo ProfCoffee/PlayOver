@@ -34,7 +34,7 @@ public class ActivityPageActivity extends AppCompatActivity {
         activity.onCompletion(new Procedure() {
             @Override
             public void run() {
-                feedbackLoader.populateLayout(mFeedBackLayout, activity.getUid(), 7);
+                //feedbackLoader.populateLayout(mFeedBackLayout, activity.getUid(), 7);
                 populateFields(activity);
             }
         });
