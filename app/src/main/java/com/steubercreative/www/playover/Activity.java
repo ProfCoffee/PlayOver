@@ -12,4 +12,5 @@ public class Activity /*extends AbstractModifiableDBObject*/ {
     private int rating;
     private int rates;
     private int duration;           //TODO: verify this type is correct
+
 }
