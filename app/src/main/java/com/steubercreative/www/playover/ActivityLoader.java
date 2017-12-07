@@ -13,20 +13,28 @@ import android.widget.TextView;
  * Created by stste on 12/6/2017.
  */
 
+
 public class ActivityLoader extends LayoutLoader{
     public ActivityLoader(Context context){
         super(context);
     }
 
-    public void PopulateLayout (ViewGroup layout, int feedbackId, int userUID, int count) {
+    public void populateLayout(ViewGroup layout, String airport, int userUID, int count) {
+        final int uidAlias = userUID;
+        final ViewGroup layoutAlias = layout;
         layout.removeAllViews();
-
-        for (int i = 0; i < count; i++) {
-            AddRow(layout, i + " Pandas eating bamboo", "Jortdan Calsean the " + i + "rd", 17 + i, 5, userUID);
-        }
+        final ActivityViewArray activities = new ActivityViewArray(airport);
+        activities.onCompletion(new Procedure() {
+            @Override
+            public void run() {
+                for(Activity a : activities.getObjects()) {
+                    addRow(layoutAlias, a, uidAlias);
+                }
+            }
+        });
     }
 
-    public void PopulateEditLayout (ViewGroup layout, int feedbackId, int count) {
+    public void populateEditLayout(ViewGroup layout, int feedbackId, int count, int userUID) {
         layout.removeAllViews();
 
         for (int i = 0; i < count; i++) {
@@ -35,16 +43,25 @@ public class ActivityLoader extends LayoutLoader{
     }
 
 
-    private void AddRow(ViewGroup layout, final String activityName, String providerName, float cost, int rating, final int userUID){
+    private void addRow(ViewGroup layout, Activity activity, int userUID){
+        final int userUIDAlias = userUID;
         View activityView = LayoutInflater.from(_context).inflate(R.layout.activity_item, layout, false);
 
         TextView activityNameTextView = activityView.findViewById(R.id.ActivityName);
-        TextView activityProviderNameTextView = activityView.findViewById(R.id.ProviderName);
+        final TextView activityProviderNameTextView = activityView.findViewById(R.id.ProviderName);
         TextView activityCostTextView = activityView.findViewById(R.id.Cost);
 
-        activityNameTextView.setText(activityName);
-        activityProviderNameTextView.setText(providerName);
-        activityCostTextView.setText("$"+cost);
+        activityNameTextView.setText(activity.getName());
+
+        final Provider provider = new Provider(true);
+        provider.setUid(activity.getProviderUid());
+        provider.onCompletion(new Procedure() {
+            @Override
+            public void run() {
+                activityProviderNameTextView.setText(provider.getName());
+            }
+        });
+        activityCostTextView.setText("$"+activity.getCost());
 
         Button viewButton = activityView.findViewById(R.id.view_button);
         viewButton.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +70,7 @@ public class ActivityLoader extends LayoutLoader{
                 Intent intent = new Intent(_context, ActivityPageActivity.class);
 
                 intent.putExtra("uid", 1);
-                intent.putExtra("userUID", userUID);
+                intent.putExtra("userUID", userUIDAlias);
 
                 _context.startActivity(intent);
             }
@@ -72,7 +89,7 @@ public class ActivityLoader extends LayoutLoader{
         });
 
         LinearLayout ratingStars_layout = activityView.findViewById(R.id.stars);
-        addStars(ratingStars_layout, rating);
+        addStars(ratingStars_layout, activity.getRating());
 
         layout.addView(activityView);
     }

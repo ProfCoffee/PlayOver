@@ -22,7 +22,7 @@ public class ProviderPageActivity extends AppCompatActivity {
 
         mFeedBackLayout = findViewById(R.id.feedback_layout);
         mActivityStarsLayout = findViewById(R.id.ProviderStars);
-        feedbackLoader = new FeedbackLoader(this);
+        feedbackLoader = new FeedbackLoader(this, true);
 
         Intent parentIntent = getIntent();
 
@@ -57,7 +57,7 @@ public class ProviderPageActivity extends AppCompatActivity {
             mFeedbackButton.setVisibility(View.GONE);
         }
 
-        feedbackLoader.populateLayout(mFeedBackLayout, 1213, 7);
+        feedbackLoader.populateLayout(mFeedBackLayout, parentIntent.getIntExtra("uid", 0), 7);
 
     }
     private void populateFields(Provider provider){

@@ -36,13 +36,7 @@ public class LoginProviderActivity extends AppCompatActivity {
         mSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 attemptLogin();
-                Intent intent = new Intent(LoginProviderActivity.this, ProviderMainActivity.class);
-
-                intent.putExtra("ProviderID", 34234);
-
-                startActivity(intent);
             }
         });
     }

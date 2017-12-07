@@ -39,6 +39,7 @@ public class QueryMapper {
     public static final String ACTION_FETCH_PROVIDER_FEEDBACK = "com.steubercreative.www.playover.action.FETCH_PROVIDER_FEEDBACK";
     public static final String ACTION_FETCH_ACTIVITY_FEEDBACK = "com.steubercreative.www.playover.action.FETCH_ACTIVITY_FEEDBACK";
     public static final String ACTION_CREATE_FEEDBACK = "com.steubercreative.www.playover.action.CREATE_FEEDBACK";
+    public static final String ACTION_FETCH_FEEDBACK = "com.steubercreative.www.playover.action.FETCH_FEEDBACK";
 
 
     public static String getPHPLink(String queryType){
@@ -116,6 +117,8 @@ public class QueryMapper {
         mapper.actions.put(ACTION_FETCH_PROVIDER_FEEDBACK, "provider_feedback");
         mapper.phpLinks.put(ACTION_CREATE_FEEDBACK, "feedback_create.php");
         mapper.actions.put(ACTION_CREATE_FEEDBACK, "create_feedback");
+        mapper.phpLinks.put(ACTION_FETCH_FEEDBACK, "feedback_info.php");
+        mapper.actions.put(ACTION_FETCH_FEEDBACK, "feedback_info");
 
         return mapper;
     }

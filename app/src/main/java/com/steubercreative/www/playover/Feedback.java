@@ -17,6 +17,7 @@ public class Feedback extends AbstractModifiableDBObject {
     private int activity;
     private String content;
     private int rating;
+    private String date;
     private Set<String> modifiable;
     private Set<String> unmodifiable;
 
@@ -59,6 +60,8 @@ public class Feedback extends AbstractModifiableDBObject {
                 rating = Integer.valueOf(fields.get(key));
             else if(key.equals("content"))
                 content = fields.get(key);
+            else if(key.equals("date"))
+                date = fields.get(key);
         }
     }
     @Override
@@ -75,12 +78,16 @@ public class Feedback extends AbstractModifiableDBObject {
             return String.valueOf(rating);
         else if(name.equals("content"))
             return content;
+        else if(name.equals("date"))
+            return date;
         else throw new RuntimeException("No such field " + name + " in feedback.");
     }
 
     @Override
     public void retrieve(Context context) {
-        retrieveHelper(context, QueryMapper.ACTION_FETCH_FEEDBACK);
+        if(activity != 0)
+            retrieveHelper(context, QueryMapper.ACTION_FETCH_ACTIVITY_FEEDBACK);
+        else retrieveHelper(context, QueryMapper.ACTION_FETCH_PROVIDER_FEEDBACK);
     }
 
     public int getUid() {
@@ -119,6 +126,8 @@ public class Feedback extends AbstractModifiableDBObject {
     public void setRating(int rating) {
         this.rating = rating;
     }
+    public String getDate() { return date; }
+    public void setDate(String date) { this.date = date; }
 
     @Override
     public void create(Context context) {
@@ -126,26 +135,23 @@ public class Feedback extends AbstractModifiableDBObject {
     }
 
     @Override
-    public void delete(Context context) {
-        save(context);
-    }
+    public void delete(Context context) {}
 
     @Override
-    public void save(Context context) {
-
-    }
+    public void save(Context context) {}
 
     private void setupModifiable() {
         modifiable = new TreeSet<>();
         modifiable.add("content");
         modifiable.add("rating");
+        modifiable.add("author");
+        modifiable.add("activity");
+        modifiable.add("provider");
+        modifiable.add("date");
     }
     private void setupUnmodifiable() {
         unmodifiable = new TreeSet<>();
         unmodifiable.add("uid");
-        unmodifiable.add("author");
-        unmodifiable.add("activity");
-        unmodifiable.add("provider");
     }
     private void clear() {
         uid = 0;

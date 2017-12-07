@@ -46,7 +46,7 @@ public class ActivitiesActivity extends AppCompatActivity {
         TextView mAirportName = findViewById(R.id.AirportName);
         mAirportName.setText(parentIntent.getStringExtra("Airport"));
 
-        activityLoader.PopulateLayout(mLinearLayout, 2324, userUID, 10);
+        activityLoader.populateLayout(mLinearLayout, extractAirportCode(parentIntent.getStringExtra("Airport")), userUID, 10);
         mAdvancedOptionsLayout = findViewById(R.id.SortAdvancedOptionsLayout);
 
         Button mFilterButton = findViewById(R.id.filter_button);
@@ -57,6 +57,11 @@ public class ActivitiesActivity extends AppCompatActivity {
             }
         });
     }
+
+    private String extractAirportCode(String field) {
+        return field.substring(0,field.indexOf("(") - 1).trim();
+    }
+
 
     private void toggleAdvancedOptions(){
         int visibility = _advancedOptionsShowing ? View.GONE : View.VISIBLE;

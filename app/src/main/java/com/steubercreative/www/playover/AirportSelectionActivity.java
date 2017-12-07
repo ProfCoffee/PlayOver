@@ -48,7 +48,7 @@ public class AirportSelectionActivity extends AppCompatActivity {
 
         if (userUID != 0) populateUserFields(userUID);
     }
-
+    
     private void populateUserFields (int uid){
         final TextView welcomeView = findViewById(R.id.WelcomeText);
         final User user = new User();

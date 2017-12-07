@@ -17,10 +17,12 @@ public class ManageActivitiesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_activities);
 
+        Intent parentIntent = getIntent();
+
         activityLoader = new ActivityLoader(this);
         mActivitiesLayout = findViewById(R.id.activities_layout);
 
-        activityLoader.PopulateEditLayout(mActivitiesLayout,23423, 4);
+        activityLoader.populateEditLayout(mActivitiesLayout,23423, 4, parentIntent.getIntExtra("ProviderUID", 0));
 
         Button mCreateNewButton = findViewById(R.id.CreateNewButton);
         mCreateNewButton.setOnClickListener(new View.OnClickListener() {
