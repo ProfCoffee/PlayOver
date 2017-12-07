@@ -25,9 +25,11 @@ abstract public class AbstractDBArray<T extends ModifiableDBObject> {
     private BroadcastReceiver broadcastReceiver;
     private Context currentContext;
     private Procedure after;
+    private boolean perror;
 
     protected AbstractDBArray() {
         after = null;
+        perror = false;
         pending = new Semaphore(1);
         currentContext = null;
         broadcastReceiver =  new BroadcastReceiver() {
@@ -38,7 +40,7 @@ abstract public class AbstractDBArray<T extends ModifiableDBObject> {
                     for(Map<String, String> row : rows)
                         addObject(row);
                 }
-                else throw new RuntimeException("Array query failed");
+                else setError();
                 arrayFieldName = null;
                 LocalBroadcastManager.getInstance(currentContext).unregisterReceiver(broadcastReceiver);
                 currentContext = null;
@@ -55,15 +57,21 @@ abstract public class AbstractDBArray<T extends ModifiableDBObject> {
     public void onCompletion(Procedure p) {
         after = p;
     }
+    public boolean error(){ return perror; }
 
     abstract public List<T> getObjects();
     abstract public void retrieve(Context context);
     abstract protected void addObject(Map<String, String> fields);
 
+    protected void setError() { perror = true; }
     protected void retrieveHelper(Context context, Bundle input, String arrayField, String queryType) {
         Set<String> strings = new TreeSet<>();
         strings.add("success");
-        query(context, input, strings, arrayField, queryType);
+        try {
+            query(context, input, strings, arrayField, queryType);
+        } catch(RuntimeException e) {
+            setError();
+        }
     }
 
     protected void query(Context context, Bundle input, Set<String> outputStrings,
