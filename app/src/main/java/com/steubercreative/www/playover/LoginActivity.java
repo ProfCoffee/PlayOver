@@ -65,10 +65,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setContentView(R.layout.activity_login);
 
 
-
-
-
-
         // Set up the login form.
         mEmailView = findViewById(R.id.email);
         populateAutoComplete();
@@ -197,9 +193,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 if(user.error()) {
                     mEmailView.setError("Username or password is incorrect");
                 }
-                else
-                    startActivity(new Intent(LoginActivity.this, AirportSelectionActivity.class));
-
+                else {
+                    Intent intent = new Intent(LoginActivity.this, AirportSelectionActivity.class);
+                    intent.putExtra("uid", user.getUid());
+                    startActivity(intent);
+                }
             }
         });
         user.login(this);
