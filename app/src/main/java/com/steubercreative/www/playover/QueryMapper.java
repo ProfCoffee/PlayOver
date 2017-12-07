@@ -36,6 +36,11 @@ public class QueryMapper {
     public static final String ACTION_FETCH_PROVIDER_ACTIVITIES = "com.steubercreative.www.playover.action.FETCH_PROVIDER_ACTIVITIES";
     public static final String ACTION_FETCH_AIRPORT_ACTIVITIES = "com.steubercreative.www.playover.action.FETCH_AIRPORT_ACTIVITIES";
 
+    public static final String ACTION_FETCH_PROVIDER_FEEDBACK = "com.steubercreative.www.playover.action.FETCH_PROVIDER_FEEDBACK";
+    public static final String ACTION_FETCH_ACTIVITY_FEEDBACK = "com.steubercreative.www.playover.action.FETCH_ACTIVITY_FEEDBACK";
+    public static final String ACTION_CREATE_FEEDBACK = "com.steubercreative.www.playover.action.CREATE_FEEDBACK";
+
+
     public static String getPHPLink(String queryType){
         return getInstance().phpLinks.get(queryType);
     }
@@ -105,6 +110,13 @@ public class QueryMapper {
         mapper.phpLinks.put(ACTION_FETCH_AIRPORT_ACTIVITIES, "airport_activities.php");
         mapper.actions.put(ACTION_FETCH_AIRPORT_ACTIVITIES, "airport_activities");
 
+        mapper.phpLinks.put(ACTION_FETCH_ACTIVITY_FEEDBACK, "activity_feedback.php");
+        mapper.actions.put(ACTION_FETCH_ACTIVITY_FEEDBACK, "activity_feedback");
+        mapper.phpLinks.put(ACTION_FETCH_PROVIDER_FEEDBACK, "provider_feedback.php");
+        mapper.actions.put(ACTION_FETCH_PROVIDER_FEEDBACK, "provider_feedback");
+        mapper.phpLinks.put(ACTION_CREATE_FEEDBACK, "feedback_create.php");
+        mapper.actions.put(ACTION_CREATE_FEEDBACK, "create_feedback");
+        
         return mapper;
     }
 

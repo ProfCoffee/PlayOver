@@ -64,7 +64,7 @@ public class Feedback extends AbstractModifiableDBObject {
 
     @Override
     public void retrieve(Context context) {
-        //retrieveHelper(context);
+        retrieveHelper(context);
     }
 
     public int getUid() {
