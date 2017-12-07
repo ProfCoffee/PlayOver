@@ -110,6 +110,7 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
         if(isReadOnly) setError();
         for(String key : modifiableFields()) {
             Bundle b = new Bundle();
+            b.putString("uid", getData("uid"));
             b.putString(key, getData(key));
             Set<String> output = new TreeSet<>();
             output.add("success");
