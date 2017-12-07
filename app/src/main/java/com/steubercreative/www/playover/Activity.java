@@ -58,7 +58,7 @@ public class Activity extends AbstractModifiableDBObject {
                 description = fields.get(key);
             else if(key.equals("location"))
                 location = fields.get(key);
-            else if(key.equals("contact"))
+            else if(key.equals("airport"))
                 airport = fields.get(key);
             else if(key.equals("rating"))
                 rating = Integer.valueOf(fields.get(key));

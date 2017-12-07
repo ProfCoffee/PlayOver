@@ -18,11 +18,11 @@ public class ActivityLoader extends LayoutLoader{
         super(context);
     }
 
-    public void PopulateLayout (ViewGroup layout, int feedbackId, int count) {
+    public void PopulateLayout (ViewGroup layout, int feedbackId, int userUID, int count) {
         layout.removeAllViews();
 
         for (int i = 0; i < count; i++) {
-            AddRow(layout, i + " Pandas eating bamboo", "Jortdan Calsean the " + i + "rd", 17 + i, 5);
+            AddRow(layout, i + " Pandas eating bamboo", "Jortdan Calsean the " + i + "rd", 17 + i, 5, userUID);
         }
     }
 
@@ -35,7 +35,7 @@ public class ActivityLoader extends LayoutLoader{
     }
 
 
-    private void AddRow(ViewGroup layout, final String activityName, String providerName, float cost, int rating){
+    private void AddRow(ViewGroup layout, final String activityName, String providerName, float cost, int rating, final int userUID){
         View activityView = LayoutInflater.from(_context).inflate(R.layout.activity_item, layout, false);
 
         TextView activityNameTextView = activityView.findViewById(R.id.ActivityName);
@@ -47,13 +47,13 @@ public class ActivityLoader extends LayoutLoader{
         activityCostTextView.setText("$"+cost);
 
         Button viewButton = activityView.findViewById(R.id.view_button);
-
         viewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(_context, ActivityPageActivity.class);
 
-                intent.putExtra("ActivityName", activityName);
+                intent.putExtra("uid", 1);
+                intent.putExtra("userUID", userUID);
 
                 _context.startActivity(intent);
             }
@@ -65,7 +65,7 @@ public class ActivityLoader extends LayoutLoader{
             public void onClick(View view) {
                 Intent intent = new Intent(_context, ProviderPageActivity.class);
 
-                intent.putExtra("providerID", 12312);
+                intent.putExtra("uid", 1);
 
                 _context.startActivity(intent);
             }

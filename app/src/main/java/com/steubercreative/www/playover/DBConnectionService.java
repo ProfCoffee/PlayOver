@@ -65,11 +65,13 @@ public class DBConnectionService extends IntentService {
         intent.putExtra(OUTPUT, (Serializable) output);
         intent.putExtra(TYPE, queryType);
         intent.setAction(ACTION_SINGLE);
+        Log.d("startAction", "about to start the service");
         context.startService(intent);
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        Log.d("handlingIntent", "HAHA!");
         if (intent != null) {
             final String action = intent.getAction();
             String type = intent.getStringExtra(TYPE);
@@ -129,6 +131,8 @@ public class DBConnectionService extends IntentService {
     }
 
     private void handleAction(String page, Bundle input, Set<String> output, String action) throws IOException {
+        Log.d("extractData", "handlings");
+
         URL url = null;
         try {
             url = new URL(buildURLString(page, input));

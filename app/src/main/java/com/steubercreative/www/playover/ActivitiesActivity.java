@@ -41,10 +41,12 @@ public class ActivitiesActivity extends AppCompatActivity {
 
         mLinearLayout = findViewById(R.id.activities_layout);
         Intent parentIntent = getIntent();
+        final int userUID = parentIntent.getIntExtra("userUID", 0);
+
         TextView mAirportName = findViewById(R.id.AirportName);
         mAirportName.setText(parentIntent.getStringExtra("Airport"));
 
-        activityLoader.PopulateLayout(mLinearLayout, 2324, 10);
+        activityLoader.PopulateLayout(mLinearLayout, 2324, userUID, 10);
         mAdvancedOptionsLayout = findViewById(R.id.SortAdvancedOptionsLayout);
 
         Button mFilterButton = findViewById(R.id.filter_button);

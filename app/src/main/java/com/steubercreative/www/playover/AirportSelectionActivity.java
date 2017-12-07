@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,9 @@ public class AirportSelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_airport_selection);
 
+        Intent parentIntent = getIntent();
+        final int userUID = parentIntent.getIntExtra("userUID", 0);
+
 
         Button mSearchButton = findViewById(R.id.search_button);
 
@@ -29,6 +33,7 @@ public class AirportSelectionActivity extends AppCompatActivity {
                 Intent intent = new Intent(AirportSelectionActivity.this, ActivitiesActivity.class);
                 Spinner airports = findViewById(R.id.spinner);
                 intent.putExtra("Airport", (String)airports.getSelectedItem());
+                intent.putExtra("userUID", userUID);
                 startActivity(intent);
             }
         });
@@ -41,12 +46,32 @@ public class AirportSelectionActivity extends AppCompatActivity {
             }
         });
 
+        if (userUID != 0) populateUserFields(userUID);
     }
+
+    private void populateUserFields (int uid){
+        final TextView welcomeView = findViewById(R.id.WelcomeText);
+        final User user = new User();
+        user.setUid(uid);
+
+        user.onCompletion(new Procedure() {
+            @Override
+            public void run() {
+                welcomeView.setText("Welcome Back, "+ user.getName());
+            }
+        });
+
+        user.retrieve(this);
+    }
+
     public void onStart() {
         super.onStart();
 
         final AirportArray airportArray = new AirportArray();
         final Context activityContext = this;
+
+
+
         airportArray.onCompletion(new Procedure() {
             @Override
             public void run() {

@@ -181,7 +181,7 @@ public class Provider extends LoginableDBObject {
         uid=0;
         about="";
         status=Status.DISCONTINUED;
-        String contact="";
+        contact="";
         rates = 0;
         rating = 0;
     }

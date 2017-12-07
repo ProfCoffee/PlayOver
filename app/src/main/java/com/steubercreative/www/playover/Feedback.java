@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by Sean on 12/7/2017.
@@ -19,6 +20,21 @@ public class Feedback extends AbstractModifiableDBObject {
     private Set<String> modifiable;
     private Set<String> unmodifiable;
 
+    public Feedback() { this(false); }
+    public Feedback(Map<String, String> fields){ this(fields, false); }
+    public Feedback(Map<String, String> fields, boolean readOnly) {
+        super(readOnly);
+        setupModifiable();
+        setupUnmodifiable();
+        clear();
+        populate(fields);
+    }
+    public Feedback(boolean readOnly) {
+        super(readOnly);
+        setupModifiable();
+        setupUnmodifiable();
+        clear();
+    }
 
     @Override
     protected Set<String> unmodifiableFields() {
@@ -64,7 +80,7 @@ public class Feedback extends AbstractModifiableDBObject {
 
     @Override
     public void retrieve(Context context) {
-        retrieveHelper(context);
+        retrieveHelper(context, QueryMapper.ACTION_FETCH_FEEDBACK);
     }
 
     public int getUid() {
@@ -102,5 +118,41 @@ public class Feedback extends AbstractModifiableDBObject {
     }
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    @Override
+    public void create(Context context) {
+        createHelper(context, QueryMapper.ACTION_CREATE_FEEDBACK);
+    }
+
+    @Override
+    public void delete(Context context) {
+        save(context);
+    }
+
+    @Override
+    public void save(Context context) {
+
+    }
+
+    private void setupModifiable() {
+        modifiable = new TreeSet<>();
+        modifiable.add("content");
+        modifiable.add("rating");
+    }
+    private void setupUnmodifiable() {
+        unmodifiable = new TreeSet<>();
+        unmodifiable.add("uid");
+        unmodifiable.add("author");
+        unmodifiable.add("activity");
+        unmodifiable.add("provider");
+    }
+    private void clear() {
+        uid = 0;
+        author = 0;
+        content = "";
+        rating = 0;
+        provider = 0;
+        activity = 0;
     }
 }

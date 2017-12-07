@@ -3,6 +3,8 @@ package com.steubercreative.www.playover;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.EditText;
@@ -32,6 +34,21 @@ public class ProviderModifiyActivity extends AppCompatActivity {
         _isEdit = _activityID != -1 ? true : false;
 
         if (_isEdit) PopulateFields();
+
+        RadioGroup scheduleRadioGroup = findViewById(R.id.SchedulingRadioGroup);
+        scheduleRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(RadioGroup group, int checkedId)
+            {
+                RadioButton checkedRadioButton = group.findViewById(checkedId);
+                boolean isChecked = checkedRadioButton.isChecked();
+                if (isChecked){
+                    ViewGroup scheduleLayout = findViewById(R.id.SchedulingLayout);
+                    int visibility = checkedId == R.id.RepetetiveRadio ? View.VISIBLE : View.GONE;
+                    scheduleLayout.setVisibility(visibility);
+                }
+            }
+        });
     }
 
     private void PopulateFields(){

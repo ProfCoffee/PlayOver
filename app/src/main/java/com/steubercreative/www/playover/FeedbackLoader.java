@@ -12,11 +12,17 @@ import android.widget.TextView;
  */
 
 public class FeedbackLoader extends LayoutLoader{
+    boolean _isProvider = false;
+
     public FeedbackLoader(Context context){
         super(context);
     }
+    public FeedbackLoader(Context context, boolean isProvider){
+        super(context);
+        _isProvider = isProvider;
+    }
 
-    public void PopulateLayout (ViewGroup layout, int feedbackId, int count){
+    public void PopulateLayout (ViewGroup layout, int uid, int count){
         for (int i = 0; i < count; i++){
             AddRow(layout);
         }

@@ -94,7 +94,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mSignInGuestButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, AirportSelectionActivity.class));
+                Intent intent = new Intent(LoginActivity.this, AirportSelectionActivity.class);
+                intent.putExtra("userUID", 0);
+                startActivity(intent);
             }
         });
 
@@ -195,7 +197,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
                 else {
                     Intent intent = new Intent(LoginActivity.this, AirportSelectionActivity.class);
-                    intent.putExtra("uid", user.getUid());
+                    intent.putExtra("userUID", user.getUid());
                     startActivity(intent);
                 }
             }
