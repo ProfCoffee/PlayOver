@@ -47,7 +47,10 @@
         <activity android:name=".ForgotLoginActivity" />
         <activity android:name=".ManageActivitiesActivity" />
         <activity android:name=".ManageProviderAccount" />
-        <activity android:name=".ProviderModifiyActivity"></activity>
+        <activity android:name=".ProviderModifiyActivity"/>
+        <activity android:name=".SignupSelectionActivity" />
+        <activity android:name=".SignupUserActivity" />
+        <activity android:name=".SignupProviderActivity" />
     </application>
 
 </manifest>

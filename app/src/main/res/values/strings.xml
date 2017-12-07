@@ -92,10 +92,7 @@
     </string-array>
 
     <string-array name="time_array">
-        <item >12 AM</item>
-        <item>Birmingham, AL</item>
-        <item>St. Louis, MO</item>
-        <item>New York, NY</item>
-        <item>Chicago, IL</item>
+        <item>AM</item>
+        <item>PM</item>
     </string-array>
 </resources>
