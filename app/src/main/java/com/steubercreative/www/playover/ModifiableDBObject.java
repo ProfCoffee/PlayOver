@@ -13,5 +13,5 @@ public interface ModifiableDBObject {
     public void save(Context context);
     public void create(Context context);
     public void delete(Context context);
-
+    public boolean error();
 }

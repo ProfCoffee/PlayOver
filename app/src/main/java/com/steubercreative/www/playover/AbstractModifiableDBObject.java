@@ -30,6 +30,7 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
     private QueryReceiver receiver;
     private final BroadcastReceiver broadcastReceiver;
     private Procedure after;
+    private boolean perror;
 
     abstract protected Set<String> modifiableFields();
     abstract protected Set<String> unmodifiableFields();
@@ -38,6 +39,7 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
 
     protected AbstractModifiableDBObject() { this(false); }
     protected AbstractModifiableDBObject(boolean readOnly) {
+        perror = false;
         after = null;
         isReadOnly = readOnly;
         broadcastReceiver =  new BroadcastReceiver() {
@@ -58,10 +60,13 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
     }
 
     @Override
+    public boolean error() { return perror; }
+    @Override
     public void onCompletion(Procedure procedure) {
         after = procedure;
     }
 
+    protected void setError() { perror = true; }
     protected void extractData(Intent intent) {
 
         if(!intent.getExtras().keySet().contains("success") || Integer.valueOf(intent.getStringExtra("success")) == 1) {
@@ -73,7 +78,7 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
             }
             populate(data);
         }
-        else throw new RuntimeException("Request failed");
+        else setError();
     }
 
     /**
@@ -91,8 +96,7 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
         query(context, b, output, queryId, defaultReceiver);
     }
     protected void createHelper(Context context, String queryId) {
-        if(isReadOnly)
-            throw new UnsupportedOperationException("Cannot create database object in read-only mode");
+        if(isReadOnly) setError();
         Bundle b = new Bundle();
         for(String key : modifiableFields()) {
             b.putString(key, getData(key));
@@ -103,8 +107,7 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
         query(context, b, output, queryId, defaultReceiver);
     }
     protected void saveHelper(Context context, String queryId) {
-        if(isReadOnly)
-            throw new UnsupportedOperationException("Cannot update database object in read-only mode");
+        if(isReadOnly) setError();
         for(String key : modifiableFields()) {
             Bundle b = new Bundle();
             b.putString(key, getData(key));
@@ -114,8 +117,7 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
         }
     }
     protected void deleteHelper(Context context, String queryId) {
-        if(isReadOnly)
-            throw new UnsupportedOperationException("Cannot delete database object in read-only mode");
+        if(isReadOnly) setError();
         Bundle b = new Bundle();
         b.putString("uid", getData("uid"));
         Set<String> output = new TreeSet<String>();
@@ -130,6 +132,10 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
         currentContext = context;
         LocalBroadcastManager.getInstance(context)
                 .registerReceiver(broadcastReceiver, new IntentFilter(QueryMapper.getQueryReturnAction(queryType)));
-        DBConnectionService.startAction(context, input, output, queryType);
+        try {
+            DBConnectionService.startAction(context, input, output, queryType);
+        } catch(RuntimeException e) {
+            setError();
+        }
     }
 }

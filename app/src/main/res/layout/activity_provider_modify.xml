@@ -150,12 +150,64 @@
 
             </RadioGroup>
 
-            <CalendarView
-                android:id="@+id/calendarView"
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorAccentGray"/>
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minDate="2017"
-                />
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:text="Scheduling "
+                android:textColor="@color/colorPrimary"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/SchedulingRadioGroup">
+
+                <RadioButton
+                    android:id="@+id/UponRequestRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upon Request"
+                    android:checked="true"
+                    android:textColor="@color/colorPrimary"/>
+
+                <RadioButton
+                    android:id="@+id/RepetetiveRadio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Periodic"
+                    android:textColor="@color/colorPrimary"/>
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="Monday: "
+                        android:textColor="@color/colorPrimary"/>
+
+                    <TimePicker
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
 
             <View
                 android:layout_marginTop="10dp"

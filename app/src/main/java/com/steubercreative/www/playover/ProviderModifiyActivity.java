@@ -32,10 +32,6 @@ public class ProviderModifiyActivity extends AppCompatActivity {
         _isEdit = _activityID != -1 ? true : false;
 
         if (_isEdit) PopulateFields();
-
-        CalendarView calendarView = findViewById(R.id.calendarView);
-        calendarView.setMinDate(calendarView.getDate());
-        calendarView.setDate(calendarView.getDate(), true, true);
     }
 
     private void PopulateFields(){
