@@ -23,8 +23,9 @@ public class Provider extends LoginableDBObject {
     private int rating;
     private int rates;
 
-    public Provider() {
-        super();
+    public Provider(){ this(false); }
+    public Provider(boolean readOnly) {
+        super(readOnly);
         clear();
         setupModifiable();
         setupUnmodifiable();

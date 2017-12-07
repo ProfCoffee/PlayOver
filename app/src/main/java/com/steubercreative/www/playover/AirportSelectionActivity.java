@@ -1,12 +1,17 @@
 package com.steubercreative.www.playover;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AirportSelectionActivity extends AppCompatActivity {
 
@@ -15,9 +20,6 @@ public class AirportSelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_airport_selection);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.custom_spinner, getResources().getStringArray(R.array.Airport_array));
-        Spinner airports = findViewById(R.id.spinner);
-        airports.setAdapter(adapter);
 
         Button mSearchButton = findViewById(R.id.search_button);
 
@@ -38,5 +40,31 @@ public class AirportSelectionActivity extends AppCompatActivity {
                 startActivity(new Intent(AirportSelectionActivity.this, ManageUserAccountActivity.class));
             }
         });
+
     }
+    public void onStart() {
+        super.onStart();
+
+        final AirportArray airportArray = new AirportArray();
+        final Context activityContext = this;
+        airportArray.onCompletion(new Procedure() {
+            @Override
+            public void run() {
+                List<String> airportStrings = new ArrayList<>();
+                for(Airport a : airportArray.getObjects())
+                    airportStrings.add(a.getCode() + " (" + a.getAirport() + ")");
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(activityContext, R.layout.custom_spinner, airportStrings);
+                Spinner airports = findViewById(R.id.spinner);
+                airports.setAdapter(adapter);
+
+            }
+        });
+        airportArray.retrieve(this);
+
+        Log.d("onResume", "number of airports= " + airportArray.getObjects().size());
+
+
+    }
+
 }

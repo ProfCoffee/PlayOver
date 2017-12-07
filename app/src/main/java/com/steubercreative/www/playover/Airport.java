@@ -19,6 +19,9 @@ public class Airport extends AbstractModifiableDBObject {
 
     public Airport() {
         super(true);
+        uid= 0;
+        code = "";
+        airport = "";
         modifiable = new TreeSet<>();
         unmodifiable = new TreeSet<>();
         unmodifiable.add("uid");
@@ -51,7 +54,7 @@ public class Airport extends AbstractModifiableDBObject {
             return String.valueOf(uid);
         else if(name.equals("code"))
             return code;
-        else if(name.equals("airports"))
+        else if(name.equals("airport"))
             return airport;
         else throw new RuntimeException("No such field " + name + " in airport");
     }
@@ -67,5 +70,6 @@ public class Airport extends AbstractModifiableDBObject {
                 airport = fields.get(key);
             else throw new RuntimeException("No such field " + key + " in airport");
         }
+
     }
 }

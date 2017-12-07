@@ -19,8 +19,9 @@ public class User extends LoginableDBObject {
     private Set<String> modifiable;
     private Set<String> unmodifiable;
 
-    public User() {
-        super();
+    public User() { this(false); }
+    public User(boolean readOnly) {
+        super(readOnly);
         setupModifiable();
         setupUnmodifiable();
         clear();

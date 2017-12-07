@@ -8,7 +8,7 @@ import android.content.Context;
 
 public interface ModifiableDBObject {
 
-
+    public void onCompletion(Procedure procedure);
     public void retrieve(Context context);
     public void save(Context context);
     public void create(Context context);

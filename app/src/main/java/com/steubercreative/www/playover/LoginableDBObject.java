@@ -24,9 +24,9 @@ public abstract class LoginableDBObject extends AbstractModifiableDBObject {
             }
         }
     };
-
-    protected LoginableDBObject() {
-        super();
+    protected LoginableDBObject() { this(false);}
+    protected LoginableDBObject(boolean readOnly) {
+        super(readOnly);
     }
 
     public abstract void login(Context context);

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 
 import java.util.Map;
 import java.util.Set;
@@ -29,6 +30,7 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
     private Context currentContext;
     private QueryReceiver receiver;
     private final BroadcastReceiver broadcastReceiver;
+    private Procedure after;
 
     abstract protected Set<String> modifiableFields();
     abstract protected Set<String> unmodifiableFields();
@@ -37,6 +39,7 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
 
     protected AbstractModifiableDBObject() { this(false); }
     protected AbstractModifiableDBObject(boolean readOnly) {
+        after = null;
         isReadOnly = readOnly;
         broadcastReceiver =  new BroadcastReceiver() {
             @Override
@@ -46,6 +49,10 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
                 LocalBroadcastManager.getInstance(currentContext).unregisterReceiver(broadcastReceiver);
                 receiver = null;
                 currentContext = null;
+                if(after != null) {
+                    after.run();
+                    after = null;
+                }
             }
         };
         receiver = null;
@@ -53,10 +60,10 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
         pending = false;
     }
 
-    //public void retrieve(Context context);
-    //public void save(Context context);
-    //public void create(Context context);
-    //public void delete(Context context);
+    @Override
+    public void onCompletion(Procedure procedure) {
+        after = procedure;
+    }
 
     protected void extractData(Intent intent) {
 
@@ -132,6 +139,7 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
         receiver = rec;
         currentContext = context;
         pending = true;
+        Log.d("SingleDBObject", "Registering broadcastreceiver");
         LocalBroadcastManager.getInstance(context)
                 .registerReceiver(broadcastReceiver, new IntentFilter(QueryMapper.getQueryReturnAction(queryType)));
         DBConnectionService.startAction(context, input, output, queryType);
