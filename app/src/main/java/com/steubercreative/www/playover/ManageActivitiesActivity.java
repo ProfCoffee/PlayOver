@@ -22,7 +22,7 @@ public class ManageActivitiesActivity extends AppCompatActivity {
         activityLoader = new ActivityLoader(this);
         mActivitiesLayout = findViewById(R.id.activities_layout);
 
-        activityLoader.populateEditLayout(mActivitiesLayout,23423, 4, parentIntent.getIntExtra("ProviderUID", 0));
+        activityLoader.populateEditLayout(mActivitiesLayout,23423, 4, parentIntent.getIntExtra("ProviderID", 0));
 
         Button mCreateNewButton = findViewById(R.id.CreateNewButton);
         mCreateNewButton.setOnClickListener(new View.OnClickListener() {

@@ -37,12 +37,22 @@ public class ActivityLoader extends LayoutLoader{
         activities.retrieve(this._context);
     }
 
-    public void populateEditLayout(ViewGroup layout, int feedbackId, int count, int userUID) {
+    public void populateEditLayout(ViewGroup layout, int feedbackCode, int count, int uid) {
         layout.removeAllViews();
+        final int uidAlias = uid;
+        final ViewGroup layoutAlias = layout;
+        layout.removeAllViews();
+        final ActivityArray activities = new ActivityArray(uid);
+        activities.onCompletion(new Procedure() {
+            @Override
+            public void run() {
+                for(Activity a : activities.getObjects()) {
+                    addEditRow(layoutAlias, a, uidAlias);
+                }
+            }
+        });
+        activities.retrieve(this._context);
 
-        for (int i = 0; i < count; i++) {
-            AddEditRow(layout, i + " Pandas eating bamboo", "Jortdan Calsean the " + i + "rd", 17 + i, 5);
-        }
     }
 
 
@@ -64,6 +74,7 @@ public class ActivityLoader extends LayoutLoader{
                 activityProviderNameTextView.setText(provider.getName());
             }
         });
+
         activityCostTextView.setText("$"+activity.getCost());
 
         Button viewButton = activityView.findViewById(R.id.view_button);
@@ -97,16 +108,26 @@ public class ActivityLoader extends LayoutLoader{
         layout.addView(activityView);
     }
 
-    private void AddEditRow(ViewGroup layout, final String activityName, String providerName, float cost, int rating){
+    private void addEditRow(ViewGroup layout, final Activity activity,  int uid){
         View activityView = LayoutInflater.from(_context).inflate(R.layout.activity_item, layout, false);
 
         TextView activityNameTextView = activityView.findViewById(R.id.ActivityName);
-        TextView activityProviderNameTextView = activityView.findViewById(R.id.ProviderName);
+        final TextView activityProviderNameTextView = activityView.findViewById(R.id.ProviderName);
         TextView activityCostTextView = activityView.findViewById(R.id.Cost);
 
-        activityNameTextView.setText(activityName);
-        activityProviderNameTextView.setText(providerName);
-        activityCostTextView.setText("$"+cost);
+        activityNameTextView.setText(activity.getName());
+
+        final  Provider provider= new Provider(true);
+        provider.setUid(uid);
+        provider.onCompletion(new Procedure() {
+            @Override
+            public void run() {
+                activityProviderNameTextView.setText(provider.getName());
+            }
+        });
+        provider.retrieve(this._context);
+
+        activityCostTextView.setText("$"+activity.getCost());
 
         Button viewButton = activityView.findViewById(R.id.view_button);
         viewButton.setText("Edit");
@@ -115,14 +136,14 @@ public class ActivityLoader extends LayoutLoader{
             public void onClick(View view) {
                 Intent intent = new Intent(_context, ProviderModifiyActivity.class);
 
-                intent.putExtra("ActivityID", 2346);
+                intent.putExtra("ActivityID", activity.getUid());
 
                 _context.startActivity(intent);
             }
         });
 
         LinearLayout ratingStars_layout = activityView.findViewById(R.id.stars);
-        addStars(ratingStars_layout, rating);
+        addStars(ratingStars_layout, activity.getRating());
 
         layout.addView(activityView);
     }

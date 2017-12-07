@@ -21,7 +21,7 @@ public class ProviderMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_provider_main);
 
-        providerUid = getIntent().getIntExtra("ProviderUID", 0);
+        providerUid = getIntent().getIntExtra("ProviderID", 0);
         provider = new Provider();
         provider.setUid(providerUid);
         provider.retrieve(this);
