@@ -68,7 +68,7 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
 
     protected void setError() { perror = true; }
     protected void extractData(Intent intent) {
-        if (intent.getExtras() == null)return;
+        if (intent.getExtras() == null) return;
         else if(!intent.getExtras().keySet().contains("success") || Integer.valueOf(intent.getStringExtra("success")) == 1) {
             Map<String, String> data = new TreeMap<>();
             for(String key : intent.getExtras().keySet()) {
