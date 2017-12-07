@@ -105,7 +105,7 @@ public class ProviderModifiyActivity extends AppCompatActivity {
         });
 
     }
-    
+
     private void saveActivity() {
         activity.onCompletion(new Procedure() {
             @Override
