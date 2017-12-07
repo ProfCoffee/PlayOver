@@ -118,6 +118,7 @@ public class DBConnectionService extends IntentService {
             String json = readAll(getInputReader(urlConnection));
             JSONObject obj = new JSONObject(json);
             Intent intent = new Intent(action);
+            Log.d("handler", "handling response to query");
             addStringOutput(intent, obj, stringOutputs);
             addArrayOutput(intent, obj, arrayOutputs);
             LocalBroadcastManager.getInstance(this).sendBroadcast(intent);

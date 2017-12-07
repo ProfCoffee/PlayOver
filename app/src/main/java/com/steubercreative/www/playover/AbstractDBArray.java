@@ -37,6 +37,7 @@ abstract public class AbstractDBArray<T extends ModifiableDBObject> {
             public void onReceive(Context context, Intent intent) {
                 if(!intent.hasExtra("success") || Integer.valueOf(intent.getStringExtra("success")) == 1) {
                     Collection<Map<String, String>> rows = (Collection<Map<String, String>>) intent.getSerializableExtra(arrayFieldName);
+                    Log.d("receiver", String.valueOf(rows.size()));
                     for(Map<String, String> row : rows)
                         addObject(row);
                 }

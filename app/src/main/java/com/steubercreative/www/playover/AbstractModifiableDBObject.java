@@ -108,14 +108,14 @@ public abstract class AbstractModifiableDBObject implements ModifiableDBObject {
     }
     protected void saveHelper(Context context, String queryId) {
         if(isReadOnly) setError();
-        for(String key : modifiableFields()) {
-            Bundle b = new Bundle();
-            b.putString("uid", getData("uid"));
-            b.putString(key, getData(key));
-            Set<String> output = new TreeSet<>();
-            output.add("success");
-            query(context, b, output, queryId, defaultReceiver);
-        }
+
+        Bundle b = new Bundle();
+        for(String k : modifiableFields())
+            b.putString(k, getData(k));
+        b.putString("uid", getData("uid"));
+        Set<String> output = new TreeSet<>();
+        output.add("success");
+        query(context, b, output, queryId, defaultReceiver);
     }
     protected void deleteHelper(Context context, String queryId) {
         if(isReadOnly) setError();

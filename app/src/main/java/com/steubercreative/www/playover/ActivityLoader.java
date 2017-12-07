@@ -2,6 +2,7 @@ package com.steubercreative.www.playover;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ public class ActivityLoader extends LayoutLoader{
         final int uidAlias = userUID;
         final ViewGroup layoutAlias = layout;
         layout.removeAllViews();
+        Log.d("populate", airport);
         final ActivityViewArray activities = new ActivityViewArray(airport);
         activities.onCompletion(new Procedure() {
             @Override
@@ -32,6 +34,7 @@ public class ActivityLoader extends LayoutLoader{
                 }
             }
         });
+        activities.retrieve(this._context);
     }
 
     public void populateEditLayout(ViewGroup layout, int feedbackId, int count, int userUID) {
