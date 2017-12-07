@@ -87,7 +87,7 @@ public class User extends LoginableDBObject {
         }
     }
 
-
+    public void setUid(int uid) { this.uid = uid; }
     public int getUid() { return uid; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
